@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustain-Able | Informes de Sostenibilidad Simplificados</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-color: #f8fafc;
+        }
+        .brand-gradient {
+            background: linear-gradient(90deg, #10B981, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2), 0 4px 6px -2px rgba(16, 185, 129, 0.1);
+        }
+        #results-card {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-gray-200">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div>
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-emerald-500"><path d="M12 22a10 10 0 0 0 10-10H2a10 10 0 0 0 10 10z"/><path d="M12 2a10 10 0 0 0-10 10h20a10 10 0 0 0-10-10z"/></svg>
+                    <h1 class="text-xl font-bold text-gray-800">Sustain-Able</h1>
+                </div>
+                <!-- Smartrem Logo Added Here -->
+                <div class="flex items-center mt-1 pl-1">
+                     <span class="text-xs text-gray-500 mr-2">Powered by</span>
+                     <!-- Asegúrate de que la ruta a tu imagen sea correcta al subir la web a tu servidor -->
+                     <img src="LOGOS SMART REM AF_Mesa de trabajo 1 copia 2.jpg" alt="Smartrem Logo" class="h-6">
+                </div>
+            </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#como-funciona" class="text-gray-600 hover:text-emerald-500 transition-colors">Cómo funciona</a>
+                <a href="#herramienta" class="text-gray-600 hover:text-emerald-500 transition-colors">Herramienta</a>
+                <a href="#faq" class="text-gray-600 hover:text-emerald-500 transition-colors">FAQ</a>
+            </nav>
+            <a href="#herramienta" class="cta-button bg-emerald-500 text-white font-semibold px-5 py-2.5 rounded-lg shadow-sm hover:bg-emerald-600">
+                Empezar Ahora
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <span class="inline-block bg-emerald-100 text-emerald-700 text-sm font-semibold px-4 py-1 rounded-full mb-4">Basado en el estándar CRREM</span>
+                <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6">
+                    Informes de Sostenibilidad, <span class="brand-gradient">Simplificados.</span>
+                </h2>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-10">
+                    Obtén una estimación de consumos y emisiones para tus activos inmobiliarios en España.
+                    Solo necesitas la dirección, nosotros nos encargamos del resto.
+                </p>
+                <a href="#herramienta" class="cta-button inline-block bg-emerald-500 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-emerald-600">
+                    Generar mi primera estimación
+                </a>
+            </div>
+        </section>
+
+        <!-- "Cómo funciona" Section -->
+        <section id="como-funciona" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Tu informe preliminar en 3 simples pasos</h3>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Nuestro sistema automatizado cruza información para darte una visión clara y rápida.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 md:gap-12 text-center">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center">
+                        <div class="bg-emerald-100 rounded-full p-5 mb-4 inline-flex">
+                            <i data-lucide="map-pin" class="w-8 h-8 text-emerald-600"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">1. Introduce los datos</h4>
+                        <p class="text-gray-600">Indica la dirección del activo, el tipo y la propiedad. No necesitas más.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center">
+                        <div class="bg-emerald-100 rounded-full p-5 mb-4 inline-flex">
+                            <i data-lucide="database-zap" class="w-8 h-8 text-emerald-600"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">2. Procesamos la información</h4>
+                        <p class="text-gray-600">Analizamos datos públicos del Catastro, INE y otras fuentes abiertas para construir un perfil energético.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center">
+                        <div class="bg-emerald-100 rounded-full p-5 mb-4 inline-flex">
+                             <i data-lucide="line-chart" class="w-8 h-8 text-emerald-600"></i>
+                        </div>
+                        <h4 class="text-xl font-semibold mb-2">3. Obtén tu estimación</h4>
+                        <p class="text-gray-600">Recibe una estimación de consumos y emisiones alineada con la metodología CRREM.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Herramienta Section -->
+        <section id="herramienta" class="bg-gray-50 py-20">
+            <div class="container mx-auto px-6">
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-white p-8 md:p-10 rounded-2xl shadow-xl border border-gray-200">
+                        <div class="text-center mb-8">
+                             <h3 class="text-3xl md:text-4xl font-bold tracking-tight">Prueba la herramienta</h3>
+                             <p class="text-gray-600 mt-2">Introduce los datos de tu activo para obtener una estimación gratuita.</p>
+                        </div>
+                        <form id="sustainability-form" class="space-y-6">
+                            <div>
+                                <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Dirección del Activo</label>
+                                <input type="text" id="address" name="address" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 transition" placeholder="Ej: Calle de la Sostenibilidad, 123, Madrid">
+                            </div>
+                            
+                            <div class="grid sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="asset-type" class="block text-sm font-medium text-gray-700 mb-1">Tipo de Activo</label>
+                                    <select id="asset-type" name="asset-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 transition bg-white">
+                                        <option>Oficinas</option>
+                                        <option>Retail</option>
+                                        <option>Residencial</option>
+                                        <option>Logístico</option>
+                                        <option>Hotelero</option>
+                                        <option>Data Center</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="property-type" class="block text-sm font-medium text-gray-700 mb-1">Tipo de Propiedad</label>
+                                    <select id="property-type" name="property-type" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 transition bg-white">
+                                        <option>Edificio completo</option>
+                                        <option>Local comercial</option>
+                                        <option>Vivienda individual</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <button type="submit" class="w-full cta-button bg-emerald-500 text-white font-bold text-lg px-8 py-4 rounded-lg shadow-lg hover:bg-emerald-600 flex items-center justify-center space-x-2">
+                                    <span id="button-text">Generar Estimación</span>
+                                    <div id="loader" class="hidden w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Results Area -->
+                    <div id="results-container" class="mt-10">
+                        <!-- This is where the results will be injected -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <h3 class="text-3xl md:text-4xl font-bold text-center mb-10">Preguntas Frecuentes</h3>
+                <div class="space-y-4">
+                    <details class="group bg-gray-50 p-6 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer font-semibold">
+                            ¿Qué es CRREM (Carbon Risk Real Estate Monitor)?
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-4">
+                            CRREM es una iniciativa europea que establece trayectorias de descarbonización para el sector inmobiliario hasta 2050. Ayuda a los inversores y propietarios a evaluar el riesgo de que sus activos queden "varados" (stranded assets) por no cumplir con los futuros estándares de emisiones.
+                        </p>
+                    </details>
+                     <details class="group bg-gray-50 p-6 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer font-semibold">
+                            ¿Qué tan precisas son estas estimaciones?
+                            <i data-lucide="chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-4">
+                            Nuestra herramienta proporciona una estimación preliminar de alto nivel. Se basa en promedios y datos estadísticos de fuentes públicas para edificios de características similares en la misma zona. Para un informe de certificación, se requiere una auditoría energética detallada del activo.
+                        </p>
+                    </details>
+                     <details class="group bg-gray-50 p-6 rounded-lg">
+                        <summary class="flex items-center justify-between cursor-pointer font-semibold">
+                            ¿Qué fuentes de datos utilizan?
+                           <i data-lucide="chevron-down" class="w-5 h-5 transition-transform group-open:rotate-180"></i>
+                        </summary>
+                        <p class="text-gray-600 mt-4">
+                            Utilizamos una combinación de datos abiertos provenientes de la Dirección General del Catastro, el Instituto Nacional de Estadística (INE), el Instituto para la Diversificación y Ahorro de la Energía (IDAE) y otros organismos oficiales para obtener datos como año de construcción, superficie, y promedios de consumo energético por zona climática y tipología.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Email Modal -->
+    <div id="email-modal" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50 flex items-center justify-center">
+        <div class="relative mx-auto p-8 border w-full max-w-md shadow-lg rounded-2xl bg-white">
+            <div class="text-center">
+                <h3 class="text-xl leading-6 font-bold text-gray-900">Enviar informe por Email</h3>
+                <div class="mt-2 px-7 py-3">
+                    <p class="text-sm text-gray-600">
+                        Introduce tu dirección de correo para recibir el informe en PDF.
+                    </p>
+                </div>
+                <form id="email-form" class="px-4">
+                    <input type="email" id="email-input" required class="w-full px-4 py-3 mt-2 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 transition" placeholder="tu-email@ejemplo.com">
+                    <div class="items-center mt-6">
+                        <button id="confirm-pdf-btn" type="submit" class="w-full cta-button bg-emerald-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-emerald-600">
+                            Confirmar y Enviar
+                        </button>
+                    </div>
+                </form>
+                <button id="cancel-modal-btn" class="mt-4 text-sm text-gray-500 hover:text-gray-700">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2024 Sustain-Able. Todos los derechos reservados.</p>
+            <p class="text-sm text-gray-400 mt-2">Simplificando la transición hacia un sector inmobiliario sostenible.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const form = document.getElementById('sustainability-form');
+        const resultsContainer = document.getElementById('results-container');
+        const loader = document.getElementById('loader');
+        const buttonText = document.getElementById('button-text');
+
+        // Modal elements
+        const emailModal = document.getElementById('email-modal');
+        const emailForm = document.getElementById('email-form');
+        const emailInput = document.getElementById('email-input');
+        const cancelModalBtn = document.getElementById('cancel-modal-btn');
+
+        function openEmailModal() {
+            emailModal.classList.remove('hidden');
+        }
+
+        function closeEmailModal() {
+            emailModal.classList.add('hidden');
+            emailInput.value = ''; // Clear input on close
+        }
+
+        cancelModalBtn.addEventListener('click', closeEmailModal);
+
+        emailForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = emailInput.value;
+            if (email) {
+                handlePdfEmailing(email);
+                closeEmailModal();
+            }
+        });
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            loader.classList.remove('hidden');
+            buttonText.innerText = 'Procesando...';
+            form.querySelector('button[type="submit"]').disabled = true;
+            resultsContainer.innerHTML = '';
+            
+            setTimeout(() => {
+                const formData = new FormData(form);
+                const assetType = formData.get('asset-type');
+                const address = formData.get('address');
+                const mockResults = generateMockData(assetType);
+                displayResults(mockResults, address, assetType);
+
+                loader.classList.add('hidden');
+                buttonText.innerText = 'Generar Estimación';
+                form.querySelector('button[type="submit"]').disabled = false;
+                
+                document.getElementById('results-container').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 2500);
+        });
+
+        function generateMockData(assetType) {
+            const baseConsumption = {'Oficinas': 180, 'Retail': 250, 'Residencial': 120, 'Logístico': 80, 'Hotelero': 300, 'Data Center': 1500};
+            const baseEmissions = {'Oficinas': 40, 'Retail': 55, 'Residencial': 25, 'Logístico': 15, 'Hotelero': 65, 'Data Center': 350};
+            const randomFactor = 0.8 + Math.random() * 0.4;
+            const consumption = (baseConsumption[assetType] * randomFactor).toFixed(2);
+            const emissions = (baseEmissions[assetType] * randomFactor).toFixed(2);
+            const crremTarget2025 = (baseEmissions[assetType] * 0.9).toFixed(2);
+            const crremTarget2030 = (baseEmissions[assetType] * 0.7).toFixed(2);
+            const meets2025 = emissions <= crremTarget2025;
+            const meets2030 = emissions <= crremTarget2030;
+            return { consumption, emissions, crremTarget2025, crremTarget2030, meets2025, meets2030 };
+        }
+
+        async function handlePdfEmailing(email) {
+            const statusDiv = document.getElementById('email-status');
+            if (!statusDiv) return;
+
+            statusDiv.innerHTML = `<div class="flex items-center justify-center text-gray-600">
+                <div class="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin mr-2"></div>
+                <span>Generando y enviando PDF...</span>
+            </div>`;
+
+            try {
+                // 1. Generate PDF data as a base64 string
+                const { jsPDF } = window.jspdf;
+                const resultsCard = document.getElementById('results-card');
+                const exportButtonContainer = resultsCard.querySelector('#export-pdf-btn-container');
+                if (exportButtonContainer) exportButtonContainer.style.display = 'none';
+
+                const canvas = await html2canvas(resultsCard, { scale: 2, useCORS: true });
+                const pdf = new jsPDF({ orientation: 'portrait', unit: 'pt', format: 'a4' });
+                const pdfWidth = pdf.internal.pageSize.getWidth();
+                const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+                pdf.addImage(canvas.toDataURL('image/png'), 'PNG', 20, 20, pdfWidth - 40, pdfHeight - 40);
+                
+                if (exportButtonContainer) exportButtonContainer.style.display = 'block';
+
+                const pdfBase64 = pdf.output('datauristring');
+
+                // 2. "Send" the email via a simulated backend call
+                await sendPdfByEmail(pdfBase64, email);
+
+                // 3. Update UI to show success
+                statusDiv.innerHTML = `<p class="text-green-600 font-semibold">¡Informe enviado a ${email} con éxito!</p>`;
+
+            } catch (error) {
+                console.error("Error generating or sending PDF:", error);
+                statusDiv.innerHTML = `<p class="text-red-600 font-semibold">Error al enviar el informe. Inténtalo de nuevo.</p>`;
+            }
+        }
+        
+        function sendPdfByEmail(pdfBase64, userEmail) {
+            // --- AVISO PARA EL DESARROLLADOR ---
+            // Esta función es una SIMULACIÓN. En una aplicación real, aquí es donde
+            // harías una llamada a tu propio backend o a un servicio de terceros
+            // (como SendGrid, AWS SES, o EmailJS) para enviar el correo electrónico.
+            // El backend recibiría los datos del PDF (en base64) y las direcciones de
+            // correo, y se encargaría del envío real para no exponer claves de API.
+            //
+            // Ejemplo de llamada a un backend con 'fetch':
+            /*
+            const endpoint = 'https://tu-api.com/send-report';
+            const payload = {
+                to: userEmail,
+                cc: 'fgonzalo@smartremsolutions.com',
+                pdfData: pdfBase64, // El string base64 del PDF
+                fileName: 'informe-sostenibilidad-sustain-able.pdf'
+            };
+
+            return fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            */
+
+            console.log("--- SIMULACIÓN DE ENVÍO DE EMAIL ---");
+            console.log("A:", userEmail);
+            console.log("CC:", "fgonzalo@smartremsolutions.com");
+            console.log("Adjunto (primeros 100 caracteres del base64):", pdfBase64.substring(0, 100) + "...");
+            console.log("------------------------------------");
+
+            // Simulamos un retraso de red de 2 segundos para la demo
+            return new Promise(resolve => setTimeout(resolve, 2000));
+        }
+
+        function displayResults(results, address, assetType) {
+            const { consumption, emissions, crremTarget2025, crremTarget2030, meets2025, meets2030 } = results;
+
+            const resultsCard = document.createElement('div');
+            resultsCard.id = 'results-card';
+            resultsCard.className = 'bg-white p-8 rounded-2xl shadow-xl border border-gray-200 opacity-0 transform translate-y-4';
+            
+            resultsCard.innerHTML = `
+                <div class="border-b pb-4 mb-4">
+                    <h4 class="text-2xl font-bold text-gray-900">Estimación para tu Activo</h4>
+                    <p class="text-gray-600">${assetType} en ${address}</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-500">Consumo Energético Estimado</p>
+                        <p class="text-3xl font-bold text-cyan-600">${consumption}</p>
+                        <p class="text-sm text-gray-500">kWh/m² al año</p>
+                    </div>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-500">Emisiones de CO₂ Estimadas (GHG)</p>
+                        <p class="text-3xl font-bold text-emerald-600">${emissions}</p>
+                        <p class="text-sm text-gray-500">kgCO₂e/m² al año</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h5 class="font-semibold text-lg mb-3">Análisis CRREM Preliminar</h5>
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between p-3 rounded-lg ${meets2025 ? 'bg-green-100' : 'bg-orange-100'}">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-5 h-5 flex-shrink-0">${meets2025 ? '<i data-lucide="check-circle-2" class="text-green-600"></i>' : '<i data-lucide="alert-triangle" class="text-orange-600"></i>'}</div>
+                                <div>
+                                    <p class="font-semibold">Objetivo 2025</p>
+                                    <p class="text-sm text-gray-600">Senda objetivo: < ${crremTarget2025} kgCO₂e/m²</p>
+                                </div>
+                            </div>
+                            <span class="font-bold text-sm px-3 py-1 rounded-full ${meets2025 ? 'bg-green-200 text-green-800' : 'bg-orange-200 text-orange-800'}">${meets2025 ? 'ALINEADO' : 'EN RIESGO'}</span>
+                        </div>
+                         <div class="flex items-center justify-between p-3 rounded-lg ${meets2030 ? 'bg-green-100' : 'bg-red-100'}">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-5 h-5 flex-shrink-0">${meets2030 ? '<i data-lucide="check-circle-2" class="text-green-600"></i>' : '<i data-lucide="x-circle" class="text-red-600"></i>'}</div>
+                                <div>
+                                    <p class="font-semibold">Objetivo 2030</p>
+                                    <p class="text-sm text-gray-600">Senda objetivo: < ${crremTarget2030} kgCO₂e/m²</p>
+                                </div>
+                            </div>
+                            <span class="font-bold text-sm px-3 py-1 rounded-full ${meets2030 ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'}">${meets2030 ? 'ALINEADO' : 'NO ALINEADO'}</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="export-pdf-btn-container" class="mt-8 text-center">
+                    <button id="export-pdf-btn" class="cta-button bg-cyan-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-cyan-600 flex items-center justify-center space-x-2 mx-auto">
+                        <i data-lucide="mail" class="w-5 h-5"></i>
+                        <span>Enviar Informe por Email</span>
+                    </button>
+                </div>
+                
+                <div id="email-status" class="mt-4 text-center h-6"></div>
+
+                <div class="mt-6 text-xs text-center text-gray-500 pt-4 border-t">
+                    <strong>Aviso:</strong> Esta es una estimación preliminar basada en datos públicos y promedios. No constituye un certificado oficial.
+                </div>
+            `;
+            
+            resultsContainer.appendChild(resultsCard);
+            document.getElementById('export-pdf-btn').addEventListener('click', openEmailModal);
+            lucide.createIcons();
+
+            requestAnimationFrame(() => {
+                resultsCard.classList.remove('opacity-0', 'translate-y-4');
+                resultsCard.classList.add('opacity-100', 'transform-none');
+            });
+        }
+    </script>
+</body>
+</html>
+
+
